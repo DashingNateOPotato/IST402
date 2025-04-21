@@ -6,6 +6,11 @@ title1 {
     background: teal;
     font-size: xx-large;
   }
+  h1 {
+    color: whitesmoke;
+    background: black;
+    font-size: large;
+  }
 p1 {
     color:whitesmoke;
     background: teal;
