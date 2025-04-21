@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAI({
-  apiKey: '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', // Replace this with your real OpenAI API key
+  apiKey: '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'
 });
 
 app.post('/api/gpt', async (req, res) => {
