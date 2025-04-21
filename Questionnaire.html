@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel = "stylesheet" href = "Style.css">
         <link rel = "stylesheet" href = "bootstrap.css">
+        <script src="server.js"></script>
 
         <nav class = "navbar navbar-expand-sm" role="navigation" style = "background-color: whitesmoke;">
             <div class = "container-fluid">
@@ -39,146 +40,64 @@
             </p1>
             <br>
             <br>
-            <label> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
+            <label style = "color: whitesmoke"> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
             <input type="text" id="domain" name="domain"> <br><br>
-            
-            <button style= "align-self: center;" onclick="calculateSum()">Submit</button>
+            <label style = "color: whitesmoke"> Number of Transactions Per Year: </label>
+            <input type="text" id="transactions" name="transactions"> <br><br>
+            <label style = "color: whitesmoke"> E-Commerce or Commerce?: </label>
+            <input type="text" id="commerce" name="commerce"> <br><br>
+            <label style = "color: whitesmoke"> State Where Business Resides: </label>
+            <input type="text" id="state" name="state"> <br><br>
+            <label style = "color: whitesmoke"> Number of Current Employees: </label>
+            <input type="text" id="employees" name="employees"> <br><br>
+            <label style = "color: whitesmoke"> Are you storing physical, electronic, or both physical and electronic data?: </label>
+            <input type="text" id="datatype" name="datatype"> <br><br>
+            <label style = "color: whitesmoke"> Is the data onsite, offsite, or onsite and offsite?: </label>
+            <input type="text" id="datastorage" name="datastorage"> <br><br>
+            <button style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
+
+            <pre id="responseBox"></pre>
         </div>
         </body>
 
         <script>
-            function calculateSum() {
-                let businesssum = 0;
-                let technologicalsum = 0;
-                let operationalsum = 0;
-                let q1 = document.querySelector('input[name="number"]:checked').value;
-                let q2 = document.querySelector('input[name="number2"]:checked').value;
-                let q3 = document.querySelector('input[name="number3"]:checked').value;
-                let q4 = document.querySelector('input[name="number4"]:checked').value;
-                let q5 = document.querySelector('input[name="number5"]:checked').value;
-                let q6 = document.querySelector('input[name="number6"]:checked').value;
-                let q7 = document.querySelector('input[name="number7"]:checked').value;
-                let q8 = document.querySelector('input[name="number8"]:checked').value;
-                let q9 = document.querySelector('input[name="number9"]:checked').value;
-                let q10 = document.querySelector('input[name="number10"]:checked').value;
-                let q11 = document.querySelector('input[name="number11"]:checked').value;
-                let q12 = document.querySelector('input[name="number12"]:checked').value;
-                let q13 = document.querySelector('input[name="number13"]:checked').value;
-                let q14 = document.querySelector('input[name="number14"]:checked').value;
-                let q15 = document.querySelector('input[name="number15"]:checked').value;
-                let q16 = document.querySelector('input[name="number16"]:checked').value;
-                let q17 = document.querySelector('input[name="number17"]:checked').value;
-                let q18 = document.querySelector('input[name="number18"]:checked').value;
-                let q19 = document.querySelector('input[name="number19"]:checked').value;
-                let q20 = document.querySelector('input[name="number20"]:checked').value;
-                let q21 = document.querySelector('input[name="number21"]:checked').value;
-                let q22 = document.querySelector('input[name="number22"]:checked').value;
-                let q23 = document.querySelector('input[name="number23"]:checked').value;
-                let q24 = document.querySelector('input[name="number24"]:checked').value;
-                let q25 = document.querySelector('input[name="number25"]:checked').value;
-                businesssum = parseInt(q1) + parseInt(q2)+ parseInt(q3)
-                + parseInt(q4) + parseInt(q5)+ parseInt(q6)+ parseInt(q7)
-                + parseInt(q8)+ parseInt(q9)+ parseInt(q10);
-                technologicalsum = parseInt(q11) + parseInt(q12)+ parseInt(q13)
-                + parseInt(q14) + parseInt(q15)+ parseInt(q16)+ parseInt(q17)
-                + parseInt(q18)+ parseInt(q19)+ parseInt(q20);
-                operationalsum = parseInt(q21) + parseInt(q22)+ parseInt(q23)
-                + parseInt(q24) + parseInt(q25);
+            /*function sendToChatGPT() {
+                var prompt = "What compliances would a " + domain.value + " business dealing with " +
+                transactions.value + " " + commerce.value + " transactions a year in " + state.value + " need, along with having " +
+                employees.value + " and storing "+ datatype.value + " data "+ datastorage.value + "? What level of PCI DSS? What specific security controls are required?"
+                + " What articles are involved with the compliances?"
+            
 
-                if (businesssum >= 20 && technologicalsum >= 20 && operationalsum >= 10) {
-                    window.location.href = "Summary Page 1.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 2.html";
-                }
-                else if (businesssum < 15 && technologicalsum < 15 && operationalsum < 7){
-                    window.location.href = "Summary Page 3.html";
-                }
-                else if (businesssum >= 20 && technologicalsum < 15 && operationalsum < 7){
-                    window.location.href = "Summary Page 4.html";
-                }
-                else if (businesssum >= 20 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 5.html";
-                }
-                else if (businesssum >= 20 && technologicalsum >= 15 && technologicalsum < 20 && operationalsum >= 10){
-                    window.location.href = "Summary Page 6.html";
-                }
-                else if (businesssum >= 20 && technologicalsum >= 15 && technologicalsum < 20 && operationalsum < 7){
-                    window.location.href = "Summary Page 7.html";
-                }
-                else if (businesssum >= 20 && technologicalsum >= 20 && operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 8.html";
-                }
-                else if (businesssum >= 20 && technologicalsum >= 20 && operationalsum < 7){
-                    window.location.href = "Summary Page 9.html";
-                }
-                else if (businesssum >= 20 && technologicalsum < 15  && operationalsum >= 10){
-                    window.location.href = "Summary Page 10.html";
-                }
-                else if (businesssum >= 20 && technologicalsum < 15  && operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 11.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum >=10){
-                    window.location.href = "Summary Page 12.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum < 7){
-                    window.location.href = "Summary Page 13.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 20 &&
-                 operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 14.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 20 &&
-                 operationalsum <7){
-                    window.location.href = "Summary Page 15.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum >= 20 &&
-                 operationalsum >=10){
-                    window.location.href = "Summary Page 16.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum < 15 &&
-                 operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 17.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum < 15 &&
-                 operationalsum < 7){
-                    window.location.href = "Summary Page 18.html";
-                }
-                else if (businesssum >= 15 && businesssum < 20 && technologicalsum < 15 &&
-                 operationalsum >= 10){
-                    window.location.href = "Summary Page 19.html";
-                }
-                else if (businesssum < 15 && technologicalsum < 15 && operationalsum >=10){
-                    window.location.href = "Summary Page 20.html";
-                }
-                else if (businesssum < 15 && technologicalsum < 15 && operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 21.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 20 && operationalsum < 7){
-                    window.location.href = "Summary Page 22.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 20 && operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 23.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 20 && operationalsum >=10){
-                    window.location.href = "Summary Page 24.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum >= 7 && operationalsum < 10){
-                    window.location.href = "Summary Page 25.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum < 7){
-                    window.location.href = "Summary Page 26.html";
-                }
-                else if (businesssum < 15 && technologicalsum >= 15 && technologicalsum < 20 &&
-                 operationalsum >= 10){
-                    window.location.href = "Summary Page 27.html";
-                }
-            };
+            };*/
+
+        function sendToChatGPT() {
+            const domainValue = domain.value.trim();
+            const transactionsValue = transactions.value.trim();
+            const commerceValue = commerce.value.trim();
+            const stateValue = state.value.trim();
+            const employeesValue = employees.value.trim();
+            const datatypeValue = datatype.value.trim();
+            const datastorageValue = datastorage.value.trim();
+            const prompt = `What compliances would a ${domainValue} business dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? What level of PCI DSS? What specific security controls are required? What articles are involved with the compliances?`;
+            sendPromptToGPT(prompt); 
+        }
+
+        function sendPromptToGPT(prompt) {
+            fetch('http://localhost:3000/api/gpt', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+            document.getElementById('responseBox').innerText = data.result;
+            })
+            .catch(error => {
+            console.error("Error:", error);
+            alert("Failed to contact server.");
+            });
+        }
         </script>
  </html>
