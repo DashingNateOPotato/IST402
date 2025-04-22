@@ -3,5 +3,25 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "openai": "^4.95.1"
-  }
+  },
+  "name": "ist402",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DashingNateOPotato/IST402.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DashingNateOPotato/IST402/issues"
+  },
+  "homepage": "https://github.com/DashingNateOPotato/IST402#readme"
 }
