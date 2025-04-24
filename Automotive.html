@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv= "X-UA-Compatible" content = "IE-Edge">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "Style.css">
+        <link rel = "stylesheet" href = "bootstrap.css">
+
+        <nav class = "navbar navbar-expand-sm" role="navigation" style = "background-color: whitesmoke;">
+            <div class = "container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Compliance Questionnaire</a>
+                </div>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="Main Menu.html">Home</a></li>
+                    <li class="active" class = ".color"><a href="#">Questionnaire</a></li>
+                    <li><a href="External Resources.html">Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class = "panel form text-center" style = "background-color: teal">
+            <br>
+            <br>
+            <title1>
+                Organizational-Related Questions That Must Be Answered!
+            </title1>
+            <br>
+            <br>
+            <img src = "https://businesslawyerinflorida.com/wp-content/uploads/2020/09/A-Short-Guide-to-Corporate-Regulatory-Compliance.jpg" width = 300 length = 300
+            alt = "Missing">
+            <br>
+            <br>
+            <p1>
+               Fill in all of the fields so we can get the best description of your industry.
+            </p1>
+            <br>
+            <br>
+            <label style = "color: whitesmoke"> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
+            <input type="text" id="domain" name="domain"> <br><br>
+            <label style = "color: whitesmoke"> Number of Transactions Per Year: </label>
+            <input type="text" id="transactions" name="transactions"> <br><br>
+            <label style = "color: whitesmoke"> E-Commerce or Commerce?: </label>
+            <input type="text" id="commerce" name="commerce"> <br><br>
+            <label style = "color: whitesmoke"> State Where Business Resides: </label>
+            <input type="text" id="state" name="state"> <br><br>
+            <label style = "color: whitesmoke"> Number of Current Employees: </label>
+            <input type="text" id="employees" name="employees"> <br><br>
+            <label style = "color: whitesmoke"> Are you storing physical, electronic, or both physical and electronic data?: </label>
+            <input type="text" id="datatype" name="datatype"> <br><br>
+            <label style = "color: whitesmoke"> Is the data onsite, offsite, or onsite and offsite?: </label>
+            <input type="text" id="datastorage" name="datastorage"> <br><br>
+            <button id= "submit" style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
+
+            <pre id="responseBox"></pre>
+            <button id="return" style="align-self: center" style="display: none;" onclick="returnHome()">Return Home</button>
+
+        </div>
+        </body>
+
+        <script>
+
+        function sendToChatGPT() {
+            document.getElementById('submit').style.visibility = 'hidden';
+            document.getElementById('return').style.visibility = 'visible';
+            const domainValue = domain.value.trim();
+            const transactionsValue = transactions.value.trim();
+            const commerceValue = commerce.value.trim();
+            const stateValue = state.value.trim();
+            const employeesValue = employees.value.trim();
+            const datatypeValue = datatype.value.trim();
+            const datastorageValue = datastorage.value.trim();
+            const prompt = `What compliances would a ${domainValue} business dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? What level of PCI DSS? What compliances pertain to the specific business? What articles are involved with the compliances? Be very specific and provide recommendations`;
+            sendPromptToGPT(prompt); 
+        }
+
+        function sendPromptToGPT(prompt) {
+            fetch('http://localhost:5000/api/gpt', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+            document.getElementById('responseBox').innerText = data.result;
+            })
+            .catch(error => {
+            console.error("Error:", error);
+            alert("Failed to contact server.");
+            });
+            document.getElementById('return').style.display = 'block';
+        }
+
+        function returnHome(){
+            window.location.href = 'Main Menu.html';
+        }
+        </script>
+ </html>
