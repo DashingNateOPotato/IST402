@@ -16,3 +16,9 @@ p1 {
     background: teal;
     font:medium;
   }
+#responseBox {
+  color: whitesmoke;
+  background: black;
+  font: medium;
+  font-family:'sans-serif;';
+}

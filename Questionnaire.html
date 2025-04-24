@@ -11,7 +11,7 @@
             <div class = "container-fluid">
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Nittany Lion National Bank</a>
+                    <a class="navbar-brand" href="#">Compliance Questionnaire</a>
                 </div>
 
                 <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
             <br>
             <br>
             <title1>
-                Organizational-Related Questions That Must Be Answered!
+                Select which domain best fits your organization or business!
             </title1>
             <br>
             <br>
@@ -34,69 +34,16 @@
             alt = "Missing">
             <br>
             <br>
-            <p1>
-               Fill in all of the fields so we can get the best description of your industry.
-            </p1>
-            <br>
-            <br>
-            <label style = "color: whitesmoke"> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
-            <input type="text" id="domain" name="domain"> <br><br>
-            <label style = "color: whitesmoke"> Number of Transactions Per Year: </label>
-            <input type="text" id="transactions" name="transactions"> <br><br>
-            <label style = "color: whitesmoke"> E-Commerce or Commerce?: </label>
-            <input type="text" id="commerce" name="commerce"> <br><br>
-            <label style = "color: whitesmoke"> State Where Business Resides: </label>
-            <input type="text" id="state" name="state"> <br><br>
-            <label style = "color: whitesmoke"> Number of Current Employees: </label>
-            <input type="text" id="employees" name="employees"> <br><br>
-            <label style = "color: whitesmoke"> Are you storing physical, electronic, or both physical and electronic data?: </label>
-            <input type="text" id="datatype" name="datatype"> <br><br>
-            <label style = "color: whitesmoke"> Is the data onsite, offsite, or onsite and offsite?: </label>
-            <input type="text" id="datastorage" name="datastorage"> <br><br>
-            <button style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
+            <button id= "healthcare" style= "align-self: center;" onclick="healthcare()">Healthcare</button>
+            <button id= "retail" style= "align-self: center;" onclick="retail()">Retail</button>
+            <button id= "automotive" style= "align-self: center;" onclick="automotive()">Automotive</button>
+            <button id= "transportation" style= "align-self: center;" onclick="transportation()">Transportation</button>
+            <button id= "agriculture" style= "align-self: center;" onclick="agriculture()">Agriculture</button>
+            <button id= "banking" style= "align-self: center;" onclick="banking()">Banking</button>
+            <script>
 
-            <pre id="responseBox"></pre>
-        </div>
-        </body>
-
-        <script>
-            /*function sendToChatGPT() {
-                var prompt = "What compliances would a " + domain.value + " business dealing with " +
-                transactions.value + " " + commerce.value + " transactions a year in " + state.value + " need, along with having " +
-                employees.value + " and storing "+ datatype.value + " data "+ datastorage.value + "? What level of PCI DSS? What specific security controls are required?"
-                + " What articles are involved with the compliances?"
-            
-
-            };*/
-
-        function sendToChatGPT() {
-            const domainValue = domain.value.trim();
-            const transactionsValue = transactions.value.trim();
-            const commerceValue = commerce.value.trim();
-            const stateValue = state.value.trim();
-            const employeesValue = employees.value.trim();
-            const datatypeValue = datatype.value.trim();
-            const datastorageValue = datastorage.value.trim();
-            const prompt = `What compliances would a ${domainValue} business dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? What level of PCI DSS? What specific security controls are required? What articles are involved with the compliances?`;
-            sendPromptToGPT(prompt); 
-        }
-
-        function sendPromptToGPT(prompt) {
-            fetch('http://localhost:5000/api/gpt', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ prompt: prompt })
-            })
-            .then(response => response.json())
-            .then(data => {
-            document.getElementById('responseBox').innerText = data.result;
-            })
-            .catch(error => {
-            console.error("Error:", error);
-            alert("Failed to contact server.");
-            });
-        }
-        </script>
+            function healthcare(){
+            window.location.href = 'Healthcare.html';
+            }   
+            </script>
  </html>
