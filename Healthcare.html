@@ -60,11 +60,11 @@
             </p1>
             <br>
             <br>
-            <label style = "color: whitesmoke"> What kind of vehicles are involved? </label>
-            <input type="text" id="vehicles" name="vehicles"> <br><br>
-            <label style = "color: whitesmoke"> Gas, Electric, or Hybrid vehicles? </label>
-            <input type="text" id="typeofvehicle" name="typeofvehicle"> <br><br>
-            <label style = "color: whitesmoke"> Any smart technology installed in the vehicles? (Yes or no) </label>
+            <label style = "color: whitesmoke"> Does your organization deal with any blood? (Does or does not)</label>
+            <input type="text" id="blood" name="blood"> <br><br>
+            <label style = "color: whitesmoke"> What kind of services does your healthcare organization offer? </label>
+            <input type="text" id="services" name="services"> <br><br>
+            <label style = "color: whitesmoke"> Any smart technology installed in any devices or machinery? (Yes or no) </label>
             <input type="text" id="smart" name="smart"> <br><br>
             <button id= "submit" style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
 
@@ -85,7 +85,10 @@
             const employeesValue = employees.value.trim();
             const datatypeValue = datatype.value.trim();
             const datastorageValue = datastorage.value.trim();
-            const prompt = `What compliances would a ${domainValue} business dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? What level of PCI DSS? What compliances pertain to the specific business? What articles are involved with the compliances? Be very specific and provide recommendations`;
+            const bloodValue = blood.value.trim();
+            const servicesValue = services.value.trim();
+            const smartValue = smart.value.trim();
+            const prompt = `What compliances would an agricultural organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization ${bloodValue} handle blood and offers services like ${servicesValue}. ${smartValue}, there is smart technology. What level of PCI DSS? What specific compliance framework articles are involved with the compliances (where in the framework does it say to follow a regulation)? Provide recommendations`;
             sendPromptToGPT(prompt); 
         }
 

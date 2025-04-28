@@ -60,11 +60,11 @@
             </p1>
             <br>
             <br>
-            <label style = "color: whitesmoke"> What kind of vehicles are involved? </label>
-            <input type="text" id="vehicles" name="vehicles"> <br><br>
-            <label style = "color: whitesmoke"> Gas, Electric, or Hybrid vehicles? </label>
-            <input type="text" id="typeofvehicle" name="typeofvehicle"> <br><br>
-            <label style = "color: whitesmoke"> Any smart technology installed in the vehicles? (Yes or no) </label>
+            <label style = "color: whitesmoke"> Where does your agricultural business reside? (Farm, Field, etc.)</label>
+            <input type="text" id="reside" name="reside"> <br><br>
+            <label style = "color: whitesmoke"> Does your organization keep and hold agricultural data? (Does or does not) </label>
+            <input type="text" id="agdata" name="agdata"> <br><br>
+            <label style = "color: whitesmoke"> Any smart technology involved with any agricultural devices or machinery? (Yes or no) </label>
             <input type="text" id="smart" name="smart"> <br><br>
             <button id= "submit" style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
 
@@ -86,7 +86,10 @@
             const employeesValue = employees.value.trim();
             const datatypeValue = datatype.value.trim();
             const datastorageValue = datastorage.value.trim();
-            const prompt = `What compliances would a ${domainValue} business dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? What level of PCI DSS? What compliances pertain to the specific business? What articles are involved with the compliances? Be very specific and provide recommendations`;
+            const resideValue = reside.value.trim();
+            const agdataValue = agdata.value.trim();
+            const smartValue = smart.value.trim();
+            const prompt = `What compliances would an agricultural organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization is on a ${resideValue} and ${agdataValue} store and collect agricultural data. ${smartValue}, there is smart technology. Do not include HIPAA! What level of PCI DSS? What specific compliance framework articles are involved with the compliances (where in the framework does it say to follow a regulation)? Provide recommendations`;
             sendPromptToGPT(prompt); 
         }
 
