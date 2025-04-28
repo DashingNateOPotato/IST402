@@ -53,10 +53,23 @@
             <input type="text" id="datatype" name="datatype"> <br><br>
             <label style = "color: whitesmoke"> Is the data onsite, offsite, or onsite and offsite?: </label>
             <input type="text" id="datastorage" name="datastorage"> <br><br>
+            <br>
+            <br>
+            <p1>
+               Fill in all of the specific questions to get more particular information.
+            </p1>
+            <br>
+            <br>
+            <label style = "color: whitesmoke"> What kind of vehicles are involved? </label>
+            <input type="text" id="vehicles" name="vehicles"> <br><br>
+            <label style = "color: whitesmoke"> Gas, Electric, or Hybrid vehicles? </label>
+            <input type="text" id="typeofvehicle" name="typeofvehicle"> <br><br>
+            <label style = "color: whitesmoke"> Any smart technology installed in the vehicles? (Yes or no) </label>
+            <input type="text" id="smart" name="smart"> <br><br>
             <button id= "submit" style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
 
             <pre id="responseBox"></pre>
-            <button id="return" style="align-self: center" style="display: none;" onclick="returnHome()">Return Home</button>
+            <button id="return" style = "visibility: hidden" onclick="returnHome()">Return Home</button>
 
         </div>
         </body>
@@ -65,8 +78,7 @@
 
         function sendToChatGPT() {
             document.getElementById('submit').style.visibility = 'hidden';
-            document.getElementById('return').style.visibility = 'visible';
-            const domainValue = domain.value.trim();
+            document.getElementById('return').style.visibility = 'margin-left: 50%';
             const transactionsValue = transactions.value.trim();
             const commerceValue = commerce.value.trim();
             const stateValue = state.value.trim();
