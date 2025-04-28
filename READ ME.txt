@@ -1,0 +1,13 @@
+Hello user!! 
+
+My name is Nathan Wright and my partners involved with helping me collect data for this program
+are JT Johnston and Adam Metzger. 
+
+This program is designed to help any tranportation, retail, automotive, agricultural, banking, or 
+healthcare organization find out what specific compliances they need to follow and what recommendations
+ChatGPT offers for ensuring they are being followed!
+
+SIDE NOTE** To receive actual responses from ChatGPT, you must ensure your computer has Node.
+Once you have Node downloaded, ensure you go to "Command Prompt", change your directory to where you have
+the downloaded files for this program, and enter "node server.js". 
+
