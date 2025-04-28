@@ -58,9 +58,9 @@
             </p1>
             <br>
             <br>
-            <label style = "color: whitesmoke"> Does your company manufacture cars? </label>
+            <label style = "color: whitesmoke"> Does your company manufacture cars? (Does or does not) </label>
             <input type="text" id="manufacture" name="manufacture"> <br><br>
-            <label style = "color: whitesmoke"> Does your company sell cars? </label>
+            <label style = "color: whitesmoke"> Does your company sell cars? (Does or does not) </label>
             <input type="text" id="sell" name="sell"> <br><br>
             <label style = "color: whitesmoke"> Gas, Electric, or Hybrid vehicles? </label>
             <input type="text" id="typeofvehicle" name="typeofvehicle"> <br><br>
@@ -79,7 +79,6 @@
         function sendToChatGPT() {
             document.getElementById('submit').style.visibility = 'hidden';
             document.getElementById('return').style = 'margin-left: 50%';
-            const domainValue = domain.value.trim();
             const transactionsValue = transactions.value.trim();
             const commerceValue = commerce.value.trim();
             const stateValue = state.value.trim();
