@@ -30,7 +30,7 @@
             </title1>
             <br>
             <br>
-            <img src = "https://businesslawyerinflorida.com/wp-content/uploads/2020/09/A-Short-Guide-to-Corporate-Regulatory-Compliance.jpg" width = 300 length = 300
+            <img src = "https://wallpaperaccess.com/full/749802.jpg" width = 300 length = 300
             alt = "Missing">
             <br>
             <br>
@@ -39,8 +39,6 @@
             </p1>
             <br>
             <br>
-            <label style = "color: whitesmoke"> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
-            <input type="text" id="domain" name="domain"> <br><br>
             <label style = "color: whitesmoke"> Number of Transactions Per Year: </label>
             <input type="text" id="transactions" name="transactions"> <br><br>
             <label style = "color: whitesmoke"> E-Commerce or Commerce?: </label>
@@ -78,7 +76,7 @@
 
         function sendToChatGPT() {
             document.getElementById('submit').style.visibility = 'hidden';
-            document.getElementById('return').style.visibility = 'margin-left: 50%';
+            document.getElementById('return').style = 'margin-left: 50%';
             const transactionsValue = transactions.value.trim();
             const commerceValue = commerce.value.trim();
             const stateValue = state.value.trim();
@@ -88,7 +86,7 @@
             const bloodValue = blood.value.trim();
             const servicesValue = services.value.trim();
             const smartValue = smart.value.trim();
-            const prompt = `What compliances would an agricultural organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization ${bloodValue} handle blood and offers services like ${servicesValue}. ${smartValue}, there is smart technology. What level of PCI DSS? What specific compliance framework articles are involved with the compliances (where in the framework does it say to follow a regulation)? Provide recommendations`;
+            const prompt = `What compliances would a healthcare organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization ${bloodValue} handle blood and offers services like ${servicesValue}. ${smartValue}, there is smart technology. What level of PCI DSS? What specific compliance framework sections followed by articles are involved with the compliances? List the articles (specific section letters and numbers). Provide recommendations`;
             sendPromptToGPT(prompt); 
         }
 

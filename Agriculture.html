@@ -30,7 +30,7 @@
             </title1>
             <br>
             <br>
-            <img src = "https://businesslawyerinflorida.com/wp-content/uploads/2020/09/A-Short-Guide-to-Corporate-Regulatory-Compliance.jpg" width = 300 length = 300
+            <img src = "https://wallpaperaccess.com/full/1598244.jpg" width = 300 length = 300
             alt = "Missing">
             <br>
             <br>
@@ -39,8 +39,6 @@
             </p1>
             <br>
             <br>
-            <label style = "color: whitesmoke"> Type of Domain(Healthcare, Banking, Agriculture, Automotive, Retail, Transportation): </label>
-            <input type="text" id="domain" name="domain"> <br><br>
             <label style = "color: whitesmoke"> Number of Transactions Per Year: </label>
             <input type="text" id="transactions" name="transactions"> <br><br>
             <label style = "color: whitesmoke"> E-Commerce or Commerce?: </label>
@@ -69,7 +67,7 @@
             <button id= "submit" style= "align-self: center;" onclick="sendToChatGPT()">Submit</button>
 
             <pre id="responseBox"></pre>
-            <<button id="return" style = "visibility: hidden" onclick="returnHome()">Return Home</button>
+            <button id="return" style = "visibility: hidden" onclick="returnHome()">Return Home</button>
 
         </div>
         </body>
@@ -78,7 +76,7 @@
 
         function sendToChatGPT() {
             document.getElementById('submit').style.visibility = 'hidden';
-            document.getElementById('return').style.visibility = 'margin-left: 50%';
+            document.getElementById('return').style = 'margin-left: 50%';
             const domainValue = domain.value.trim();
             const transactionsValue = transactions.value.trim();
             const commerceValue = commerce.value.trim();
@@ -89,7 +87,7 @@
             const resideValue = reside.value.trim();
             const agdataValue = agdata.value.trim();
             const smartValue = smart.value.trim();
-            const prompt = `What compliances would an agricultural organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization is on a ${resideValue} and ${agdataValue} store and collect agricultural data. ${smartValue}, there is smart technology. Do not include HIPAA! What level of PCI DSS? What specific compliance framework articles are involved with the compliances (where in the framework does it say to follow a regulation)? Provide recommendations`;
+            const prompt = `What compliances would an agricultural organization dealing with ${transactionsValue} ${commerceValue} transactions a year in ${stateValue} need, along with having ${employeesValue} employees and storing ${datatypeValue} data ${datastorageValue}? The organization is on a ${resideValue} and ${agdataValue} store and collect agricultural data. ${smartValue}, there is smart technology. Do not include HIPAA! What level of PCI DSS?What level of PCI DSS? What specific compliance framework sections followed by articles are involved with the compliances? List the articles (specific section letters and numbers). Provide recommendations`;
             sendPromptToGPT(prompt); 
         }
 
