@@ -11,16 +11,20 @@ SIDE NOTE** To receive actual responses from ChatGPT, you must ensure your compu
 Once you have Node downloaded, ensure you go to "Command Prompt", change your directory to where you have
 the downloaded files for this program, and enter "node server.js". 
 
+Steps for Downloading Program:
+1. 
+
 Steps For Downloading and Running Node.js:
 
-1. Visit the official Node.js website to retrieve the installer
+1. Visit the official Node.js website to retrieve the installer here: https://nodejs.org/en/download/ 
 2. Run the installer once the node.js file is downloaded
 3. Walk through the installer, and then click "Install" to complete the process. 
 4. Click Finish once installed
 5. Open Command Prompt and type "node -v"
 6. If this returned a version, this means you installed node.js
 7. Once the install is verified, change the directory to where you downloaded the program
-8. This command would look like "cd [directory path]
+8. This command would look like "cd [directory path]"
 9. Run the command "node server.js" to start the server
 10. There should be a message responding with a server running at a local host
+11. This is what it should like: "Server running at http://localhost:5000"
 
