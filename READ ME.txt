@@ -12,10 +12,13 @@ Once you have Node downloaded, ensure you go to "Command Prompt", change your di
 the downloaded files for this program, and enter "node server.js". 
 
 Steps for Downloading Program:
-1. 
+1. Go to this link in order to access this whole program: https://github.com/DashingNateOPotato/IST402
+2. Once at this link, find the green "Code" button
+3. Click the button and then find where you can download a Zip file of this program
+4. Go to your downloads in File Explorer and locate the zipped tool
+5. Extract it to wherever you desire, and find the ReadMe.txt file
 
 Steps For Downloading and Running Node.js:
-
 1. Visit the official Node.js website to retrieve the installer here: https://nodejs.org/en/download/ 
 2. Run the installer once the node.js file is downloaded
 3. Walk through the installer, and then click "Install" to complete the process. 
